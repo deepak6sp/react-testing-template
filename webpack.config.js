@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: "development",
   entry: {
-    main: './src/main.js', 
+    main: './src/main.ts', 
   },
   module: {
     rules: [
@@ -16,11 +16,12 @@ module.exports = {
               "presets": ["@babel/preset-env", "@babel/preset-react"]
           }
         },
-      }
+      },
+      { test: /\.tsx?$/, use: "awesome-typescript-loader" }
     ]
   },
   resolve: {
-    extensions: [ 'jsx', '.js' ]
+    extensions: [ ".ts", ".tsx", '.jsx', '.js' ]
   },
   output: {
     filename: '[name].js',
